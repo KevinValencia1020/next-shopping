@@ -1,0 +1,46 @@
+<svg width="500" height="450" viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg-gradient" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F0F4F8" />
+            <stop offset="1" stop-color="#E1E8ED" />
+        </linearGradient>
+    </defs>
+
+    <circle cx="250" cy="250" r="240" fill="url(#bg-gradient)"/>
+    
+    <g fill="#CFD8DC" opacity="0.6">
+        <circle cx="100" cy="150" r="5" />
+        <circle cx="400" cy="120" r="8" />
+        <circle cx="350" cy="350" r="4" />
+        <circle cx="80" cy="300" r="6" />
+        <circle cx="250" cy="80" r="3" />
+    </g>
+
+    <g transform="translate(125, 60)"> <ellipse cx="125" cy="190" rx="80" ry="20" fill="#B0BEC5" opacity="0.3"/>
+
+        <g transform="translate(70, 40)">
+            <rect x="-20" y="40" width="40" height="50" rx="10" fill="#90A4AE"/>
+            <rect x="-25" y="30" width="50" height="70" rx="20" fill="#ECEFF1"/>
+            <circle cx="0" cy="30" r="35" fill="#ECEFF1"/>
+            <circle cx="0" cy="30" r="25" fill="#B3E5FC"/> 
+            <ellipse cx="-8" cy="25" rx="5" ry="3" fill="white" opacity="0.8"/> 
+            
+            <path d="M-20 60 Q-40 80 -10 100" stroke="#ECEFF1" stroke-width="12" stroke-linecap="round"/>
+            <path d="M20 60 Q40 80 10 100" stroke="#ECEFF1" stroke-width="12" stroke-linecap="round"/>
+        </g>
+
+        <g transform="translate(125, 160) rotate(-20)">
+            <circle cx="0" cy="0" r="50" stroke="#546E7A" stroke-width="8" fill="none"/>
+            <rect x="-6" y="50" width="12" height="40" rx="6" fill="#546E7A"/>
+             <text x="0" y="20" font-family="Arial, sans-serif" font-size="50" fill="#FF7043" text-anchor="middle" font-weight="bold">?</text>
+        </g>
+    </g>
+
+    <g text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+        <text x="250" y="340" font-size="28" fill="#37474F" font-weight="bold">¡Ups! Producto no encontrado.</text>
+        <text x="250" y="375" font-size="16" fill="#78909C">
+            <tspan x="250" dy="0">Parece que lo que buscas se ha perdido en el espacio.</tspan>
+            <tspan x="250" dy="22">Intenta con otros términos de búsqueda.</tspan>
+        </text>
+    </g>
+</svg>

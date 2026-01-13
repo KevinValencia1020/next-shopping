@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, Search, ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
     return (
-        <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-evenly py-3 w-[90%] mx-auto gap-2">
+        <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-evenly py-3 w-[95%] mx-auto gap-2">
             <Link href="/" >
                 <Image
                     src="/logo.svg"

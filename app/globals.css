@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --font-sans: var(--font-roboto);
   --font-mono: var(--font-open_sans);
+  --color-brand: #162630;
 }

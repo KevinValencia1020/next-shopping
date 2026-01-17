@@ -1,47 +1,103 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, Search, ShoppingCart } from "lucide-react";
+import { Ellipsis, Search, ShoppingCart, User, List } from "lucide-react";
+import { useState } from "react";
+
+const constrols = [
+    {
+        icon: <User size={22} strokeWidth={2} />,
+        text: "Perfil"
+    },
+    {
+        icon: <Search size={22} strokeWidth={2} />,
+        text: "Buscar"
+    },
+    {
+        icon: <List size={22} strokeWidth={2} />,
+        text: "Categorías"
+    },
+    {
+        icon: <ShoppingCart size={22} strokeWidth={2} />,
+        text: "Carrito"
+    },
+    {
+        icon: <Ellipsis size={20} strokeWidth={2} className="text-black" />,
+        text: "Menú"
+    }
+];
+
 
 const Navbar = () => {
+    const [activeTab, setActiveTab] = useState("");
+
+    const handleTabClick = (tabName: string) => {
+        if (activeTab === tabName) {
+            setActiveTab("");
+        } else {
+            setActiveTab(tabName);
+        }
+    }
     return (
-        <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-evenly py-3 w-[95%] mx-auto gap-2">
-            <Link href="/" >
-                <Image
-                    src="/logo.svg"
-                    alt="Logo"
-                    width={80}
-                    height={50}
-                    priority
-                    className="w-28 h-12"
-                />
-            </Link>
 
-            <div className="flex items-center relative w-[60%] ">
-                <input
-                    type="text"
-                    placeholder="Buscar"
-                    className="w-full pl-2 pr-12 border py-2 border-gray-300 bg-white rounded-xl outline-none focus:ring-2 transition-all text-black" />
+        <>
+            <header className="fixed top-0 left-0 right-0 z-50 pt-6 w-full">
 
-                <button
-                    className="absolute right-2 top-1/2 -translate-y-1/2">
-                    <Search size={22} strokeWidth={2} className="text-black" />
-                </button>
-            </div>
+                <div className="flex items-center relative w-[95%] mx-auto">
+                    <Link href="/" >
+                        <Image
+                            src="/logo.svg"
+                            alt="Logo"
+                            width={100}
+                            height={50}
+                            priority
+                            className="w-40 h-14"
+                        />
+                    </Link>
+                    <input
+                        type="text"
+                        placeholder="Buscar"
+                        className="w-full pl-2 pr-12 border py-2 border-gray-300 bg-white rounded-xl outline-none focus:ring-2 transition-all text-black"
+                    />
 
-            <div className="flex items-center gap-2">
-
-                <Link href="/cart">
-                    <button>
-                        <ShoppingCart size={22} strokeWidth={2} className="text-white" />
+                    <button
+                        className="absolute right-2 top-1/2 -translate-y-1/2">
+                        <Search size={22} strokeWidth={2} className="text-black" />
                     </button>
-                </Link>
+                </div>
+            </header>
+            <nav className="fixed bottom-6 z-50 flex items-center justify-evenly py-3 w-full">
 
-                <button>
-                    <Menu size={20} strokeWidth={2} className="text-white" />
-                </button>
-            </div>
-        </nav>
+                <div
+                    className="flex items-center gap-2 bg-white w-[85%] mx-auto rounded-3xl pt-1 min-w-[300px]">
+
+                    <div className="w-[95%] mx-auto flex items-end justify-evenly gap-2">
+
+                        {constrols.map((control, index) => {
+
+                            const isActive = activeTab === control.text;
+                            return <button key={index}
+                                className="flex flex-col items-center gap-1 relative py-1 transition-all duration-300"
+                                onClick={() => handleTabClick(control.text)}
+                            >
+                                <div className={`${isActive ? 'text-brand scale-110' : 'text-black'
+                                    } transition-all`}>
+                                    {control.icon}
+                                </div>
+                                <p className={`${isActive ? 'text-brand' : 'text-black'
+                                    } transition-all`}>
+                                    {control.text}
+                                </p>
+
+                                {isActive && (
+                                    <div className="absolute bottom-0 w-full h-0.5 bg-brand rounded-full animate-in fade-in zoom-in duration-300"></div>
+                                )}
+                            </button>
+                        })}
+                    </div>
+                </div>
+            </nav>
+        </>
     )
 }
 

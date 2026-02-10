@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Ellipsis, Search, ShoppingCart, User, List } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const constrols = [
     {
@@ -30,6 +30,7 @@ const constrols = [
 
 const Navbar = () => {
     const [activeTab, setActiveTab] = useState("");
+    const searchInputRef = useRef<HTMLInputElement>(null);
 
     const handleTabClick = (tabName: string) => {
         if (activeTab === tabName) {
@@ -38,6 +39,12 @@ const Navbar = () => {
             setActiveTab(tabName);
         }
     }
+    useEffect(() => {
+        if (activeTab === "Buscar") {
+            searchInputRef.current?.focus();
+        }
+    }, [activeTab]);
+
     return (
 
         <>
@@ -55,6 +62,10 @@ const Navbar = () => {
                         />
                     </Link>
                     <input
+                        ref={searchInputRef}
+                        onFocus={() => {
+                            setActiveTab("Buscar");
+                        }}
                         type="text"
                         placeholder="Buscar"
                         className="w-full pl-2 pr-12 border py-2 border-gray-300 bg-white rounded-xl outline-none focus:ring-2 transition-all text-black"

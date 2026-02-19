@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Ellipsis, Search, ShoppingCart, User, List } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import SearchSuggestions from "./SearchSuggestions";
+import useSearch from "@/hooks/useSearch";
+import { getProducts } from "@/services/api";
 
 const constrols = [
     {
@@ -28,9 +31,17 @@ const constrols = [
 ];
 
 
-const Navbar = () => {
+const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
     const [activeTab, setActiveTab] = useState("");
     const searchInputRef = useRef<HTMLInputElement>(null);
+    const [allProducts, setAllProducts] = useState([]);
+    const { query, setQuery, results } = useSearch(allProducts);
+
+    // Manejo del input de búsqueda
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const query = e.target.value.toLocaleLowerCase();
+        setQuery(query);
+    }
 
     const handleTabClick = (tabName: string) => {
         if (activeTab === tabName) {
@@ -44,6 +55,10 @@ const Navbar = () => {
             searchInputRef.current?.focus();
         }
     }, [activeTab]);
+
+    useEffect(() => {
+        getProducts().then(data => setAllProducts(data));
+    }, []);
 
     return (
 
@@ -63,6 +78,8 @@ const Navbar = () => {
                     </Link>
                     <input
                         ref={searchInputRef}
+                        value={query}
+                        onChange={handleSearchChange}
                         onFocus={() => {
                             setActiveTab("Buscar");
                         }}
@@ -76,6 +93,13 @@ const Navbar = () => {
                         <Search size={22} strokeWidth={2} className="text-black" />
                     </button>
                 </div>
+
+                <SearchSuggestions
+                    openSuggestions={activeTab === "Buscar"}
+                    results={results}
+                    query={query}
+                />
+
             </header>
             <nav className="fixed bottom-6 z-50 flex items-center justify-evenly py-3 w-full">
 

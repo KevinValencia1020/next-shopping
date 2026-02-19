@@ -43,6 +43,7 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
         setQuery(query);
     }
 
+    // Manejo de los tabs
     const handleTabClick = (tabName: string) => {
         if (activeTab === tabName) {
             setActiveTab("");
@@ -56,6 +57,7 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
         }
     }, [activeTab]);
 
+    // Obtener todos los productos
     useEffect(() => {
         getProducts().then(data => setAllProducts(data));
     }, []);

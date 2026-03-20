@@ -106,7 +106,7 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
             <nav className="fixed bottom-6 z-50 flex items-center justify-evenly py-3 w-full">
 
                 <div
-                    className="flex items-center gap-2 bg-white w-[85%] mx-auto rounded-3xl pt-1 min-w-[300px]">
+                    className="flex items-center gap-2 bg-white w-[85%] mx-auto rounded-3xl pt-1 min-w-80">
 
                     <div className="w-[95%] mx-auto flex items-end justify-evenly gap-2">
 

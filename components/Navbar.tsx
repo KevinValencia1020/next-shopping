@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { X } from "lucide-react";
 import { Ellipsis, Search, ShoppingCart, User, List } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
@@ -67,6 +68,14 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
         return () => controller.abort();
     }, []);
 
+    // Limpiar el query de búsqueda
+    const handleclearQuery = () => {
+        if (query.length > 0) {
+            setQuery("");
+            searchInputRef.current?.focus();
+        }
+    }
+
     return (
 
         <>
@@ -92,8 +101,14 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
                         }}
                         type="text"
                         placeholder="Buscar"
-                        className="w-full pl-2 pr-12 border py-2 border-gray-300 bg-white rounded-xl outline-none focus:ring-2 transition-all text-black"
+                        className="w-full pl-2 pr-14 border py-2 border-gray-300 bg-white rounded-xl outline-none focus:ring-2 transition-all text-black"
                     />
+                    
+                    {query.length > 0 && (
+                        <button className="absolute right-8 top-1/2 -translate-y-1/2">
+                            <X size={22} strokeWidth={2} className="text-gray-500" onClick={handleclearQuery} />
+                        </button>
+                    )}
 
                     <button
                         className="absolute right-2 top-1/2 -translate-y-1/2">

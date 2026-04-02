@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Ellipsis, Search, ShoppingCart, User, List } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
-import useSearch from "@/hooks/useSearch";
+import useSearch, { Product } from "@/hooks/useSearch";
 import { getProducts } from "@/services/api";
 
 const constrols = [
@@ -34,7 +34,7 @@ const constrols = [
 const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
     const [activeTab, setActiveTab] = useState("");
     const searchInputRef = useRef<HTMLInputElement>(null);
-    const [allProducts, setAllProducts] = useState([]);
+    const [allProducts, setAllProducts] = useState<Product[]>([]);
     const { query, setQuery, results } = useSearch(allProducts);
 
     // Manejo del input de búsqueda
@@ -59,7 +59,12 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
 
     // Obtener todos los productos
     useEffect(() => {
-        getProducts().then(data => setAllProducts(data));
+        const controller = new AbortController();
+        getProducts(controller.signal).then(product => {
+            Array.isArray(product) && setAllProducts(product);
+        });
+
+        return () => controller.abort();
     }, []);
 
     return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface Product {
+export interface Product {
     id: number,
     title: string,
     price: number,
@@ -9,7 +9,7 @@ interface Product {
 }
 
 const useSearch = (products: Product[]) => {
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState<string>("");
     const [results, setResults] = useState<Product[]>([]);
 
     useEffect(() => {

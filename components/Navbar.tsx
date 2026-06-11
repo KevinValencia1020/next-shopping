@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import SearchSuggestions from "./SearchSuggestions";
 import useSearch, { Product } from "@/hooks/useSearch";
 import { getProducts } from "@/services/api";
+import useFetch from "@/hooks/useFetch";
 
 const constrols = [
     {
@@ -37,6 +38,7 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
     const searchInputRef = useRef<HTMLInputElement>(null);
     const [allProducts, setAllProducts] = useState<Product[]>([]);
     const { query, setQuery, results } = useSearch(allProducts);
+    const { data, loading, error, refetch} = useFetch<Product[]>("https://fakestoreapiserver.reactbd.org/api/products");
 
     // Manejo del input de búsqueda
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,13 +62,10 @@ const Navbar = ({ searchSuggestions }: { searchSuggestions: boolean }) => {
 
     // Obtener todos los productos
     useEffect(() => {
-        const controller = new AbortController();
-        getProducts(controller.signal).then(product => {
-            Array.isArray(product) && setAllProducts(product);
-        });
-
-        return () => controller.abort();
-    }, []);
+        if (data && Array.isArray((data as any).data)) {
+            setAllProducts((data as any).data);
+        }
+    }, [data]);
 
     // Limpiar el query de búsqueda
     const handleclearQuery = () => {

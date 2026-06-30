@@ -1,0 +1,433 @@
+// ============================================================
+// PRISMA SCHEMA — Ecommerce Project
+// ============================================================
+// Prisma es el "traductor" entre tu código TypeScript y
+// tu base de datos PostgreSQL. Aquí defines la ESTRUCTURA
+// de tus datos una sola vez, y Prisma genera:
+//   1. El SQL para crear las tablas (migraciones)
+//   2. Los tipos de TypeScript automáticamente
+//   3. El cliente para hacer queries desde tu código
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+// ============================================================
+// ENUMS — Son "listas cerradas" de valores permitidos.
+// La ventaja: la base de datos RECHAZA cualquier valor
+// que no esté en la lista. Más seguro que un String libre.
+// ============================================================
+
+enum Role {
+  CUSTOMER  // Usuario normal que compra
+  ADMIN     // Puede gestionar productos, stock, descuentos
+}
+
+enum OrderStatus {
+  PENDING    // Orden creada, esperando pago
+  PAID       // Pago confirmado
+  SHIPPED    // En camino
+  DELIVERED  // Entregada
+  CANCELLED  // Cancelada
+}
+
+enum DiscountType {
+  PERCENTAGE  // Ej: 20% de descuento
+  FIXED       // Ej: $5.000 de descuento
+}
+
+// ============================================================
+// TABLA: User
+// ------------------------------------------------------------
+// Representa tanto a clientes como administradores.
+// Un solo modelo para los dos roles es más simple de manejar
+// que tener dos tablas separadas.
+// ============================================================
+
+model User {
+  id        String   @id @default(uuid())
+  // ↑ uuid() genera un ID único universal como "a1b2c3d4-..."
+  // Ventaja sobre autoincrement: no revela cuántos usuarios tienes,
+  // más seguro para URLs públicas (/users/123 vs /users/uuid)
+
+  email     String   @unique
+  password  String   // Siempre guardar hasheada con bcrypt, NUNCA en texto plano
+
+  firstName String
+  lastName  String
+  role      Role     @default(CUSTOMER)
+  // ↑ Si no se especifica rol al crear el usuario, es CUSTOMER por defecto
+
+  phone     String?
+  // ↑ El "?" significa que el campo es OPCIONAL (puede ser NULL en la BD)
+
+  isActive  Boolean  @default(true)
+  // ↑ Para desactivar cuentas sin borrarlas (soft delete)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // ↑ @updatedAt: Prisma actualiza este campo automáticamente
+  //   cada vez que se modifica el registro. No tienes que hacerlo tú.
+
+  // -- RELACIONES --
+  // Estas líneas no crean columnas en la tabla,
+  // son "puentes" que Prisma usa para hacer queries relacionados.
+  addresses  Address[]
+  orders     Order[]
+  cartItems  CartItem[]
+  reviews    Review[]
+  preferences UserPreference?
+  // ↑ El "?" aquí significa que un usuario puede no tener preferencias aún (nuevo usuario)
+  paymentMethods  PaymentMethod[]
+
+  @@map("users") // Nombre real de la tabla en PostgreSQL (convención: snake_case plural)
+}
+
+// ============================================================
+// TABLA: UserPreference
+// ------------------------------------------------------------
+// Aquí guardas los intereses del usuario para el home dinámico.
+// Relación 1 a 1 con User: cada usuario tiene UNA preferencia.
+// ============================================================
+
+model UserPreference {
+  id     String @id @default(uuid())
+
+  userId String @unique
+  // ↑ @unique hace que esta sea una relación 1 a 1:
+  //   un userId solo puede aparecer una vez en esta tabla
+
+  // categoryWeights guarda algo como:
+  // { "tecnologia": 5, "ropa": 2, "hogar": 1 }
+  // Cada vez que el usuario visita una categoría, aumentas su peso.
+  // El home muestra primero las categorías con mayor peso.
+  categoryWeights Json @default("{}")
+  // ↑ Json es el tipo de Prisma para JSONB en PostgreSQL.
+  //   Flexible: puedes guardar cualquier estructura sin cambiar el esquema.
+
+  lastVisitedCategories String[] @default([])
+  // ↑ Array de los últimos 10 IDs de categorías visitadas.
+  //   Útil para mostrar "Visto recientemente".
+
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // ↑ onDelete: Cascade significa: si el User se borra, esta preferencia
+  //   se borra también automáticamente. Evita datos huérfanos.
+
+  @@map("user_preferences")
+}
+
+// ============================================================
+// TABLA: Address
+// ------------------------------------------------------------
+// Relación 1 a N con User: un usuario puede tener
+// varias direcciones guardadas (casa, trabajo, etc.)
+// ============================================================
+
+model Address {
+  id         String  @id @default(uuid())
+  userId     String
+  street     String
+  city       String
+  state      String
+  country    String  @default("Colombia")
+  postalCode String?
+  isDefault  Boolean @default(false)
+  // ↑ Para saber cuál dirección usar primero al hacer checkout
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders Order[]
+
+  @@map("addresses")
+}
+
+// ============================================================
+// TABLA: Category
+// ------------------------------------------------------------
+// Categorías de productos. Soporta subcategorías con
+// "parentId" (relación de la tabla consigo misma).
+// Ej: "Tecnología" > "Celulares" > "Samsung"
+// ============================================================
+
+model Category {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  slug        String  @unique
+  // ↑ slug es el nombre en URL: "Electrónica" → "electronica"
+  //   Siempre más seguro en URLs que el nombre con tildes y espacios
+
+  description String?
+  imageUrl    String?
+  isActive    Boolean @default(true)
+
+  parentId    String?
+  // ↑ Si es null, es una categoría raíz. Si tiene valor, es subcategoría.
+
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryHierarchy")
+  // ↑ Relación recursiva: una categoría puede tener
+  //   un padre y muchos hijos. Prisma necesita el nombre
+  //   "CategoryHierarchy" para distinguir las dos direcciones.
+
+  products    Product[]
+
+  @@map("categories")
+}
+
+// ============================================================
+// TABLA: Product
+// ------------------------------------------------------------
+// El corazón del ecommerce. Cada producto tiene:
+// - Datos básicos (nombre, precio, stock)
+// - Imágenes (en tabla separada ProductImage)
+// - Descuentos (en tabla separada Discount)
+// ============================================================
+
+model Product {
+  id          String  @id @default(uuid())
+  name        String
+  slug        String  @unique
+  description String
+  price       Decimal @db.Decimal(10, 2)
+  // ↑ IMPORTANTE: Usa Decimal, NUNCA Float para dinero.
+  //   Float tiene errores de redondeo. Decimal es exacto.
+  //   Decimal(10, 2) = hasta 99.999.999,99
+
+  stock       Int     @default(0)
+  isActive    Boolean @default(true)
+  isFeatured  Boolean @default(false)
+  // ↑ Para mostrar productos destacados en el home
+
+  brand String?
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+
+  // -- Campos para métricas del home dinámico --
+  viewCount    Int @default(0)
+  // ↑ Cada vez que alguien ve el producto, incrementas este contador
+  salesCount   Int @default(0)
+  // ↑ Cada vez que se vende, lo incrementas
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // -- RELACIONES --
+  images      ProductImage[]
+  discounts   Discount[]
+  orderItems  OrderItem[]
+  cartItems   CartItem[]
+  reviews     Review[]
+
+  @@map("products")
+}
+
+// ============================================================
+// TABLA: ProductImage
+// ------------------------------------------------------------
+// Relación 1 a N con Product: un producto puede tener
+// varias imágenes. Separamos las imágenes del producto
+// para no tener arrays de URLs en una sola columna
+// (eso viola las formas normales de bases de datos).
+// ============================================================
+
+model ProductImage {
+  id        String  @id @default(uuid())
+  productId String
+  url       String  // URL de Cloudinary, ej: "https://res.cloudinary.com/..."
+  altText   String?
+  position  Int     @default(0)
+  // ↑ Para ordenar las imágenes: 0 = imagen principal
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_images")
+}
+
+// ============================================================
+// TABLA: Discount
+// ------------------------------------------------------------
+// Los descuentos pueden aplicarse a un producto específico
+// O a una categoría completa.
+// El admin crea descuentos con fecha de inicio y fin.
+// ============================================================
+
+model Discount {
+  id          String       @id @default(uuid())
+  name        String       // Ej: "Cyber Monday", "Liquidación"
+  type        DiscountType
+  value       Decimal      @db.Decimal(10, 2)
+  // ↑ Si type = PERCENTAGE, value = 20 (significa 20%)
+  //   Si type = FIXED, value = 5000 (significa $5.000 de descuento)
+
+  startDate   DateTime
+  endDate     DateTime
+  isActive    Boolean @default(true)
+
+  // Un descuento puede aplicar a un producto O a una categoría (o ambos)
+  productId   String?
+  product     Product?  @relation(fields: [productId], references: [id])
+
+  @@map("discounts")
+}
+
+// ============================================================
+// TABLA: CartItem
+// ------------------------------------------------------------
+// El carrito de compras NO es una tabla "Cart" con items.
+// Son directamente los items asociados a un usuario.
+// Cuando el usuario hace checkout, estos items se convierten
+// en una Order con OrderItems y se eliminan del carrito.
+// ============================================================
+
+model CartItem {
+  id        String @id @default(uuid())
+  userId    String
+  productId String
+  quantity  Int    @default(1)
+
+  addedAt   DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  // ↓ Constraint único: un usuario no puede tener el mismo
+  //   producto dos veces en el carrito — si agrega otro,
+  //   solo aumentas la cantidad.
+  @@unique([userId, productId])
+  @@map("cart_items")
+}
+
+// ============================================================
+// TABLA: Order
+// ------------------------------------------------------------
+// Representa una compra completada (o en proceso).
+// IMPORTANTE: Guardamos el precio total en el momento de la
+// compra, porque los precios pueden cambiar después.
+// ============================================================
+
+model Order {
+  id          String      @id @default(uuid())
+  userId      String
+  addressId   String
+  status      OrderStatus @default(PENDING)
+
+  // Guardamos estos valores al momento del checkout.
+  // Si el precio del producto cambia mañana, tu orden
+  // histórica sigue mostrando lo que realmente pagaste.
+  subtotal    Decimal @db.Decimal(10, 2)
+  discount    Decimal @db.Decimal(10, 2) @default(0)
+  total       Decimal @db.Decimal(10, 2)
+
+  notes       String? // Notas del cliente al hacer el pedido
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User      @relation(fields: [userId], references: [id])
+  address Address   @relation(fields: [addressId], references: [id])
+  items   OrderItem[]
+  transactions Transaction[]
+
+  @@map("orders")
+}
+
+// ============================================================
+// TABLA: OrderItem
+// ------------------------------------------------------------
+// Esta es la tabla intermedia de la relación N a N
+// entre Order y Product.
+// "Una orden tiene muchos productos, un producto puede
+// estar en muchas órdenes."
+//
+// CRÍTICO: Guardamos el precio unitario al momento de la
+// compra (priceAtPurchase), no una referencia al precio actual.
+// ============================================================
+
+model OrderItem {
+  id              String  @id @default(uuid())
+  orderId         String
+  productId       String
+  quantity        Int
+  priceAtPurchase Decimal @db.Decimal(10, 2)
+  // ↑ Este es el precio que pagó el cliente.
+  //   Si el admin sube el precio mañana, esto no cambia.
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+// ============================================================
+// TABLA: Review
+// ------------------------------------------------------------
+// Reseñas de productos. Solo usuarios que compraron
+// el producto deberían poder reseñarlo (esto lo validas
+// en tu backend, no en la base de datos).
+// ============================================================
+
+model Review {
+  id        String @id @default(uuid())
+  userId    String
+  productId String
+  rating    Int    // 1 a 5
+  comment   String?
+  isVisible Boolean @default(true)
+
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  // ↑ Un usuario solo puede reseñar el mismo producto una vez
+
+  @@map("reviews")
+}
+
+model PaymentMethod {
+  id             String  @id @default(uuid())
+  userId         String
+  provider       String
+  token          String  @unique
+  cardType       String?
+  lastFourDigits String?
+  expiryMonth    Int?
+  expiryYear     Int?
+  isDefault      Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@map("payment_methods")
+}
+
+model Transaction {
+  id                   String   @id @default(uuid())
+  orderId              String
+  paymentMethodId      String?
+
+  amount               Decimal  @db.Decimal(10, 2)
+  currency             String   @default("COP")
+  status               String
+
+  gatewayTransactionId String?
+  gatewayResponse      Json?
+
+  transactionDate      DateTime @default(now())
+
+  order         Order          @relation(fields: [orderId], references: [id])
+  paymentMethod PaymentMethod? @relation(fields: [paymentMethodId], references: [id])
+
+  @@map("transactions")
+}

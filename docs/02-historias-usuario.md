@@ -64,7 +64,7 @@
 
 ---
 
-### HU-09: Buscar productos
+### HU-06: Buscar productos
 **Como** cliente,
 **quiero** buscar productos por nombre, marca, descripción o características,
 **para** encontrar rápido el electrodoméstico que necesito.
@@ -76,19 +76,19 @@
 
 ---
 
-### HU-10: Ver detalle de producto
+### HU-07: Ver detalle de producto
 **Como** cliente,
 **quiero** ver especificaciones, calificación, precio y descripción de un producto,
 **para** decidir si es lo que necesito antes de comprarlo.
 
 **Criterios de aceptación:**
-- Debe mostrar todas las características cargadas por el admin (HU-07)
+- Debe mostrar todas las características cargadas por el admin (HU-16)
 - Debe mostrar el precio actual (con descuento aplicado, si tiene oferta activa)
 - Debe mostrar al menos una imagen del producto
 
 ---
 
-### HU-11: Marcar producto como favorito
+### HU-08: Marcar producto como favorito
 **Como** cliente,
 **quiero** marcar un producto como favorito,
 **para** guardarlo y revisarlo después sin perderlo de vista.
@@ -99,7 +99,7 @@
 
 ---
 
-### HU-12: Agregar producto al carrito
+### HU-09: Agregar producto al carrito
 **Como** cliente,
 **quiero** agregar un producto al carrito,
 **para** comprarlo más adelante.
@@ -111,7 +111,7 @@
 
 ---
 
-### HU-13: Gestionar carrito de compras
+### HU-10: Gestionar carrito de compras
 **Como** cliente,
 **quiero** ver el costo total, los productos agregados, eliminar productos o modificar cantidades en mi carrito,
 **para** tener certeza de mi compra antes de confirmarla.
@@ -124,7 +124,7 @@
 
 ---
 
-### HU-14: Checkout y pago
+### HU-11: Checkout y pago
 **Como** cliente,
 **quiero** seleccionar un método de pago y ver el resumen de mi compra antes de confirmar,
 **para** completar mi pedido con la información correcta.
@@ -134,10 +134,11 @@
 - Debe permitir elegir o agregar un método de pago
 - Debe mostrar un resumen final (productos, cantidades, total) antes de confirmar
 - Solo usuarios registrados y autenticados pueden acceder a esta sección (no hay compra como invitado)
+- Si el pago falla, se muestra un mensaje de error y se permite reintentar sin perder los datos ya ingresados
 
 ---
 
-### HU-15: Ver historial y estado de pedidos
+### HU-12: Ver historial y estado de pedidos
 **Como** cliente,
 **quiero** ver mis pedidos anteriores y su estado actual,
 **para** hacer seguimiento de mis compras.
@@ -149,9 +150,35 @@
 
 ---
 
+### HU-13: Feed personalizado por búsquedas y navegación
+**Como** cliente con sesión activa,
+**quiero** ver en el feed del home productos relacionados con mis búsquedas recientes,
+**para** encontrar más rápido productos de mi interés sin repetir la búsqueda.
+
+**Criterios de aceptación:**
+- El feed muestra productos de las mismas categorías que las búsquedas recientes del cliente
+- Los resultados se ordenan por relevancia: primero las categorías más buscadas, luego las menos frecuentes
+- Si el cliente no tiene historial de búsquedas (usuario nuevo o sin actividad reciente), se muestra un catálogo general por defecto
+- El feed se actualiza con cada nueva búsqueda relevante, sin necesidad de recargar manualmente la página
+
+---
+
+### HU-14: Sección de favoritos recordados en el feed
+**Como** cliente con sesión activa,
+**quiero** ver una sección en el home que me recuerde los productos que marqué como favoritos,
+**para** volver fácilmente a algo que ya me interesó sin tener que buscarlo de nuevo.
+
+**Criterios de aceptación:**
+- La sección solo aparece si el cliente tiene al menos un producto marcado como favorito (HU-08)
+- Se muestran los favoritos más recientes primero
+- Si el producto favorito ya no está disponible (sin stock), se indica claramente en la tarjeta del producto
+- El cliente puede quitar un favorito directamente desde esta sección
+
+---
+
 ## Rol: Admin
 
-### HU-06: Verificación de rol
+### HU-15: Verificación de rol
 **Como** admin,
 **quiero** que el sistema verifique mi rol al iniciar sesión,
 **para** evitar que cualquier usuario acceda al panel de administración.
@@ -163,7 +190,7 @@
 
 ---
 
-### HU-07: Agregar producto nuevo
+### HU-16: Agregar producto nuevo
 **Como** admin,
 **quiero** agregar productos con imágenes, nombre, descripción, precio, stock y características,
 **para** evitar errores por campos faltantes.
@@ -176,7 +203,7 @@
 
 ---
 
-### HU-08: Aplicar ofertas
+### HU-17: Aplicar ofertas
 **Como** admin,
 **quiero** aplicar ofertas por categoría o por producto específico,
 **para** atraer clientes y aumentar ventas.
@@ -188,12 +215,12 @@
 
 ---
 
-### HU-16: Actualizar estado de un pedido
+### HU-18: Actualizar estado de un pedido
 **Como** admin,
 **quiero** cambiar el estado de un pedido (confirmado, enviado, entregado),
 **para** mantener informado al cliente sobre su compra.
 
 **Criterios de aceptación:**
 - Debe permitir cambiar el estado desde un panel de gestión de pedidos
-- El cambio de estado debe reflejarse inmediatamente en el historial del cliente (HU-15)
+- El cambio de estado debe reflejarse inmediatamente en el historial del cliente (HU-12)
 - Debe existir una secuencia lógica de estados (no se puede pasar de "pendiente" a "entregado" sin pasos intermedios)

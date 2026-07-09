@@ -224,3 +224,15 @@
 - Debe permitir cambiar el estado desde un panel de gestión de pedidos
 - El cambio de estado debe reflejarse inmediatamente en el historial del cliente (HU-12)
 - Debe existir una secuencia lógica de estados (no se puede pasar de "pendiente" a "entregado" sin pasos intermedios)
+
+## Rol: cliente
+### HU-19: Ver productos similares
+**Como** cliente,
+**quiero** ver productos similares de la misma categoría al producto que estoy viendo,
+**para** comparar precios y marcas antes de decidir cuál comprar.
+
+**Criterios de aceptación:**
+- Se muestran productos de la misma categoría, excluyendo el producto actual
+- Se muestra un máximo de 10 productos similares
+- Si no hay suficientes productos en la categoría, la sección se oculta o muestra menos de 10 (no se rellena con productos de otra categoría)
+- Cada tarjeta es clickeable y redirige al detalle de ese producto (mismo comportamiento que HU-07)

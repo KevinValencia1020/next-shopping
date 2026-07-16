@@ -211,7 +211,9 @@
 **Criterios de aceptación:**
 - Debe permitir elegir entre aplicar la oferta a un producto o a toda una categoría
 - Debe permitir definir el porcentaje o monto de descuento
-- El precio con descuento debe mostrarse claramente en el catálogo
+- Debe permitir definir una fecha de inicio y una fecha de vencimiento para la oferta
+- El precio con descuento debe mostrarse claramente en el catálogo solo mientras la oferta esté vigente
+- Una vez vencida la fecha, el precio vuelve automáticamente al original (la oferta pasa a estado "Vencida")
 
 ---
 

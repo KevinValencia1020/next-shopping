@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1000 750" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1000" height="750" fill="#ffffff"/>
+
+  <text x="30" y="40" font-size="20" fill="#1e1b3a" font-weight="bold">Sistema de Diseno - next-shopping</text>
+  <text x="30" y="60" font-size="11" fill="#888">Paleta Indigo Tech + Tipografia Inter</text>
+
+  <!-- COLORES -->
+  <text x="30" y="100" font-size="13" fill="#333" font-weight="bold">COLORES</text>
+
+  <rect x="30" y="110" width="90" height="60" fill="#1e1b3a"/>
+  <text x="30" y="182" font-size="9" fill="#333">Primario oscuro</text>
+  <text x="30" y="193" font-size="8" fill="#999">#1E1B3A - Headers, texto principal</text>
+
+  <rect x="135" y="110" width="90" height="60" fill="#5b5fef"/>
+  <text x="135" y="182" font-size="9" fill="#333">Primario</text>
+  <text x="135" y="193" font-size="8" fill="#999">#5B5FEF - Botones, links, enfasis</text>
+
+  <rect x="240" y="110" width="90" height="60" fill="#00d9a3"/>
+  <text x="240" y="182" font-size="9" fill="#333">Acento</text>
+  <text x="240" y="193" font-size="8" fill="#999">#00D9A3 - CTAs especiales, badges</text>
+
+  <rect x="345" y="110" width="90" height="60" fill="#f8f8fc" stroke="#eee"/>
+  <text x="345" y="182" font-size="9" fill="#333">Fondo</text>
+  <text x="345" y="193" font-size="8" fill="#999">#F8F8FC</text>
+
+  <text x="30" y="215" font-size="11" fill="#666" font-weight="bold">Semanticos:</text>
+  <rect x="30" y="222" width="70" height="30" rx="4" fill="#dff0d8"/>
+  <text x="38" y="240" font-size="8" fill="#3c763d">Exito #3C763D</text>
+  <rect x="110" y="222" width="70" height="30" rx="4" fill="#fcf8e3"/>
+  <text x="118" y="240" font-size="8" fill="#8a6d3b">Alerta #8A6D3B</text>
+  <rect x="190" y="222" width="70" height="30" rx="4" fill="#f2dede"/>
+  <text x="198" y="240" font-size="8" fill="#a94442">Error #A94442</text>
+  <rect x="270" y="222" width="70" height="30" rx="4" fill="#d9edf7"/>
+  <text x="278" y="240" font-size="8" fill="#31708f">Info #31708F</text>
+
+  <!-- TIPOGRAFIA -->
+  <line x1="30" y1="270" x2="970" y2="270" stroke="#eee"/>
+  <text x="30" y="300" font-size="13" fill="#333" font-weight="bold">TIPOGRAFIA (Inter)</text>
+
+  <text x="30" y="335" font-size="26" fill="#1e1b3a" font-weight="bold">Titulo H1 - 26px Bold</text>
+  <text x="30" y="365" font-size="20" fill="#1e1b3a" font-weight="bold">Titulo H2 - 20px Bold</text>
+  <text x="30" y="392" font-size="16" fill="#1e1b3a" font-weight="bold">Titulo H3 - 16px SemiBold</text>
+  <text x="30" y="415" font-size="13" fill="#333">Texto base - 13px Regular (parrafos, descripciones)</text>
+  <text x="30" y="435" font-size="11" fill="#666">Texto secundario - 11px Regular (metadatos, notas)</text>
+  <text x="30" y="453" font-size="10" fill="#999">Texto pequeno - 10px Regular (labels, ayudas)</text>
+
+  <!-- BOTONES / ESTADOS -->
+  <line x1="30" y1="475" x2="970" y2="475" stroke="#eee"/>
+  <text x="30" y="505" font-size="13" fill="#333" font-weight="bold">BOTONES Y ESTADOS</text>
+
+  <rect x="30" y="520" width="160" height="40" rx="6" fill="#5b5fef"/>
+  <text x="55" y="545" font-size="11" fill="white" font-weight="bold">Boton primario</text>
+
+  <rect x="200" y="520" width="160" height="40" rx="6" fill="#4548c9"/>
+  <text x="215" y="545" font-size="11" fill="white" font-weight="bold">Primario (hover)</text>
+
+  <rect x="370" y="520" width="160" height="40" rx="6" fill="#c5c6f5"/>
+  <text x="395" y="545" font-size="11" fill="white" font-weight="bold">Primario (disabled)</text>
+
+  <rect x="540" y="520" width="160" height="40" rx="6" fill="white" stroke="#5b5fef" stroke-width="2"/>
+  <text x="565" y="545" font-size="11" fill="#5b5fef" font-weight="bold">Boton secundario</text>
+
+  <rect x="710" y="520" width="160" height="40" rx="6" fill="#00d9a3"/>
+  <text x="740" y="545" font-size="11" fill="#1e1b3a" font-weight="bold">CTA acento</text>
+
+  <!-- ESPACIADO -->
+  <line x1="30" y1="580" x2="970" y2="580" stroke="#eee"/>
+  <text x="30" y="610" font-size="13" fill="#333" font-weight="bold">ESPACIADO (base 4px)</text>
+
+  <rect x="30" y="625" width="4" height="20" fill="#5b5fef"/>
+  <text x="42" y="640" font-size="9" fill="#666">4px - xs (espacio minimo entre elementos)</text>
+  <rect x="30" y="655" width="8" height="20" fill="#5b5fef"/>
+  <text x="46" y="670" font-size="9" fill="#666">8px - sm (padding interno de badges)</text>
+  <rect x="30" y="685" width="16" height="20" fill="#5b5fef"/>
+  <text x="54" y="700" font-size="9" fill="#666">16px - md (padding de tarjetas, botones)</text>
+  <rect x="30" y="715" width="24" height="20" fill="#5b5fef"/>
+  <text x="62" y="730" font-size="9" fill="#666">24px - lg (separacion entre secciones)</text>
+
+  <!-- BORDES -->
+  <text x="500" y="610" font-size="13" fill="#333" font-weight="bold">RADIOS DE BORDE</text>
+  <rect x="500" y="625" width="60" height="60" rx="4" fill="#f0f0fc" stroke="#5b5fef"/>
+  <text x="505" y="700" font-size="8" fill="#666">4px - sm</text>
+  <rect x="580" y="625" width="60" height="60" rx="8" fill="#f0f0fc" stroke="#5b5fef"/>
+  <text x="585" y="700" font-size="8" fill="#666">8px - md</text>
+  <rect x="660" y="625" width="60" height="60" rx="16" fill="#f0f0fc" stroke="#5b5fef"/>
+  <text x="665" y="700" font-size="8" fill="#666">16px - lg</text>
+  <rect x="740" y="625" width="60" height="60" rx="30" fill="#f0f0fc" stroke="#5b5fef"/>
+  <text x="745" y="700" font-size="8" fill="#666">full - pill</text>
+
+</svg>

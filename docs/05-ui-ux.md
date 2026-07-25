@@ -87,6 +87,8 @@ Aplicación del sistema de diseño sobre los wireframes ya validados (ver `04-wi
 
 Wireframe de referencia: [wireframe-home-movil](./assets/wireframes/wireframe-home-v2.png)
 
+![Mockup home móvil invitado](./assets/ui-ux/mockup-home-movil-invitado.svg)
+
 *(Aquí se irán agregando el resto de mockups a medida que se generen: detalle de producto, carrito, checkout, etc.)*
 
 ## Pendientes de definir

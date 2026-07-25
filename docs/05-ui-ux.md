@@ -79,24 +79,16 @@ Sistema basado en múltiplos de 4px (compatible con clases de Tailwind):
 
 ## Mockups de alta fidelidad
 
-Aplicación del sistema de diseño sobre los wireframes ya validados (ver `04-wireframes.md`).
+Aplicación del sistema de diseño sobre los wireframes ya validados (ver `04-wireframes.md`). Se documenta el home como ejemplo de referencia; el resto de pantallas seguirán el mismo sistema de diseño al momento de programarlas.
 
-### Home (móvil)
+### Home (móvil) - Con sesión activa
 
 ![Mockup home móvil](./assets/ui-ux/mockup-home-movil.svg)
 
-Wireframe de referencia: [wireframe-home-movil](./assets/wireframes/wireframe-home-v2.png)
+Wireframe de referencia: [wireframe-home-movil](./assets/wireframes/wireframe-home-movil.svg)
+
+### Home (móvil) - Sin sesión activa
 
 ![Mockup home móvil invitado](./assets/ui-ux/mockup-home-movil-invitado.svg)
 
-*(Aquí se irán agregando el resto de mockups a medida que se generen: detalle de producto, carrito, checkout, etc.)*
-
-## Pendientes de definir
-
-Los siguientes elementos del sistema de diseño se definirán durante la etapa de programación, cuando se tenga el contexto específico de cada pantalla:
-
-- Breakpoints responsive exactos (móvil / tablet / desktop)
-- Librería de iconos a utilizar
-- Diseño de estados vacíos, de carga y de error
-- Tratamiento visual de imágenes de producto (fondo, recorte, sombra)
-- Sombras y elevación de componentes
+Muestra el estado por defecto cuando no hay usuario logueado: sin sección de favoritos, feed de "Destacados" en vez de personalizado (ver criterios de aceptación de HU-13 y HU-14), y banner de invitación a iniciar sesión.

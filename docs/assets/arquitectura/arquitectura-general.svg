@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1100 650" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1100" height="650" fill="#ffffff"/>
+
+  <text x="30" y="35" font-size="18" fill="#1e1b3a" font-weight="bold">Arquitectura General - next-shopping</text>
+
+  <!-- FRONTEND -->
+  <rect x="40" y="70" width="280" height="160" rx="10" fill="#eeeefb" stroke="#5b5fef" stroke-width="2"/>
+  <text x="60" y="100" font-size="14" fill="#1e1b3a" font-weight="bold">FRONTEND</text>
+  <text x="60" y="118" font-size="11" fill="#5b5fef" font-weight="bold">Next.js</text>
+  <text x="60" y="140" font-size="9" fill="#333">- Paginas y componentes React</text>
+  <text x="60" y="155" font-size="9" fill="#333">- Tailwind CSS</text>
+  <text x="60" y="170" font-size="9" fill="#333">- Consume API REST via fetch</text>
+  <text x="60" y="185" font-size="9" fill="#333">- Guarda JWT en cookie httpOnly</text>
+  <text x="60" y="205" font-size="8" fill="#999">Deploy: Vercel</text>
+
+  <!-- flecha 1 -->
+  <line x1="320" y1="150" x2="400" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="400" y1="170" x2="320" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="325" y="145" font-size="8" fill="#666">HTTPS / JSON</text>
+  <text x="325" y="188" font-size="8" fill="#666">Respuestas</text>
+
+  <!-- BACKEND -->
+  <rect x="400" y="70" width="280" height="160" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="420" y="100" font-size="14" fill="#1e1b3a" font-weight="bold">BACKEND / API</text>
+  <text x="420" y="118" font-size="11" fill="#2e7d32" font-weight="bold">Express + Node.js</text>
+  <text x="420" y="140" font-size="9" fill="#333">- Routes / Controllers / Services</text>
+  <text x="420" y="155" font-size="9" fill="#333">- Middlewares (auth, rol admin)</text>
+  <text x="420" y="170" font-size="9" fill="#333">- Prisma ORM</text>
+  <text x="420" y="185" font-size="9" fill="#333">- Genera y verifica JWT</text>
+  <text x="420" y="205" font-size="8" fill="#999">Deploy: Railway / Render</text>
+
+  <!-- flecha 2 -->
+  <line x1="680" y1="130" x2="760" y2="130" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="685" y="123" font-size="8" fill="#666">SQL (Prisma)</text>
+
+  <!-- DB -->
+  <rect x="760" y="70" width="280" height="90" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="780" y="100" font-size="14" fill="#1e1b3a" font-weight="bold">BASE DE DATOS</text>
+  <text x="780" y="118" font-size="11" fill="#e65100" font-weight="bold">PostgreSQL</text>
+  <text x="780" y="140" font-size="9" fill="#333">Deploy: Railway / Supabase / Neon</text>
+
+  <!-- Cloudinary -->
+  <line x1="540" y1="230" x2="540" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="545" y="255" font-size="8" fill="#666">Upload de imagenes</text>
+
+  <rect x="400" y="280" width="280" height="80" rx="10" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+  <text x="420" y="310" font-size="14" fill="#1e1b3a" font-weight="bold">CLOUDINARY</text>
+  <text x="420" y="328" font-size="9" fill="#333">Almacenamiento de imagenes (plan gratuito)</text>
+  <text x="420" y="343" font-size="8" fill="#999">El backend gestiona el upload</text>
+
+  <!-- Resend -->
+  <rect x="760" y="280" width="280" height="80" rx="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="780" y="310" font-size="14" fill="#1e1b3a" font-weight="bold">RESEND</text>
+  <text x="780" y="328" font-size="9" fill="#333">Envio de correos (registro, pedido)</text>
+  <text x="780" y="343" font-size="8" fill="#999">API llamada desde el backend</text>
+
+  <line x1="680" y1="320" x2="760" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Flujo de autenticacion -->
+  <line x1="30" y1="420" x2="1070" y2="420" stroke="#eee"/>
+  <text x="30" y="450" font-size="13" fill="#333" font-weight="bold">Flujo de autenticacion (JWT en cookie httpOnly)</text>
+
+  <text x="30" y="480" font-size="10" fill="#666">1. Usuario envia credenciales &#8594; Express valida &#8594; genera JWT</text>
+  <text x="30" y="500" font-size="10" fill="#666">2. Express responde con Set-Cookie (httpOnly, secure, sameSite)</text>
+  <text x="30" y="520" font-size="10" fill="#666">3. El navegador envia la cookie automaticamente en cada peticion posterior</text>
+  <text x="30" y="540" font-size="10" fill="#666">4. Middleware en Express verifica el JWT antes de rutas protegidas (ej: checkout, panel admin)</text>
+
+  <line x1="30" y1="565" x2="1070" y2="565" stroke="#eee"/>
+  <text x="30" y="595" font-size="9" fill="#999">Nota: Next.js nunca accede directamente a PostgreSQL. Toda comunicacion pasa por la API de Express.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+
+</svg>

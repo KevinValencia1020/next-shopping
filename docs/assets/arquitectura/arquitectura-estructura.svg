@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1100 700" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1100" height="700" fill="#ffffff"/>
+
+  <text x="30" y="35" font-size="18" fill="#1e1b3a" font-weight="bold">Estructura de carpetas</text>
+
+  <!-- FRONTEND -->
+  <text x="30" y="70" font-size="13" fill="#5b5fef" font-weight="bold">next-shopping-frontend/</text>
+  <text x="45" y="90" font-size="10" fill="#333">├── app/</text>
+  <text x="60" y="107" font-size="9" fill="#666">│   ├── (auth)/login, registro</text>
+  <text x="60" y="122" font-size="9" fill="#666">│   ├── (shop)/producto/[id]</text>
+  <text x="60" y="137" font-size="9" fill="#666">│   ├── carrito/</text>
+  <text x="60" y="152" font-size="9" fill="#666">│   ├── checkout/</text>
+  <text x="60" y="167" font-size="9" fill="#666">│   ├── pedidos/</text>
+  <text x="60" y="182" font-size="9" fill="#666">│   └── admin/ (productos, ofertas, pedidos)</text>
+  <text x="45" y="200" font-size="10" fill="#333">├── components/</text>
+  <text x="60" y="217" font-size="9" fill="#666">│   ├── ui/ (Button, Card, Input...)</text>
+  <text x="60" y="232" font-size="9" fill="#666">│   └── layout/ (Header, Navbar, Footer)</text>
+  <text x="45" y="250" font-size="10" fill="#333">├── lib/</text>
+  <text x="60" y="267" font-size="9" fill="#666">│   ├── api.js (funciones fetch al backend)</text>
+  <text x="60" y="282" font-size="9" fill="#666">│   └── utils.js</text>
+  <text x="45" y="300" font-size="10" fill="#333">├── hooks/ (useCart, useAuth...)</text>
+  <text x="45" y="318" font-size="10" fill="#333">├── context/ (CartContext, AuthContext)</text>
+  <text x="45" y="336" font-size="10" fill="#333">└── public/</text>
+
+  <!-- BACKEND -->
+  <text x="580" y="70" font-size="13" fill="#2e7d32" font-weight="bold">next-shopping-backend/</text>
+  <text x="595" y="90" font-size="10" fill="#333">├── src/</text>
+  <text x="610" y="107" font-size="9" fill="#666">│   ├── routes/</text>
+  <text x="625" y="122" font-size="9" fill="#666">│   │   ├── auth.routes.js</text>
+  <text x="625" y="137" font-size="9" fill="#666">│   │   ├── productos.routes.js</text>
+  <text x="625" y="152" font-size="9" fill="#666">│   │   ├── carrito.routes.js</text>
+  <text x="625" y="167" font-size="9" fill="#666">│   │   ├── pedidos.routes.js</text>
+  <text x="625" y="182" font-size="9" fill="#666">│   │   └── admin.routes.js</text>
+  <text x="610" y="200" font-size="9" fill="#666">│   ├── controllers/</text>
+  <text x="610" y="217" font-size="9" fill="#666">│   ├── services/</text>
+  <text x="625" y="232" font-size="8" fill="#999">│   │   (logica de negocio,</text>
+  <text x="625" y="245" font-size="8" fill="#999">│   │    ej: stock, ofertas, JWT)</text>
+  <text x="610" y="263" font-size="9" fill="#666">│   ├── middlewares/</text>
+  <text x="625" y="278" font-size="8" fill="#999">│   │   (verificarJWT, verificarAdmin)</text>
+  <text x="610" y="296" font-size="9" fill="#666">│   └── utils/ (envio de correos)</text>
+  <text x="595" y="314" font-size="10" fill="#333">├── prisma/</text>
+  <text x="610" y="331" font-size="9" fill="#666">│   └── schema.prisma</text>
+  <text x="595" y="349" font-size="10" fill="#333">└── server.js</text>
+
+  <!-- Convenciones de endpoints -->
+  <line x1="30" y1="380" x2="1070" y2="380" stroke="#eee"/>
+  <text x="30" y="410" font-size="13" fill="#333" font-weight="bold">Convencion de endpoints (REST)</text>
+
+  <text x="30" y="440" font-size="10" fill="#666" font-family="monospace">GET    /api/productos          - listar catalogo (paginado)</text>
+  <text x="30" y="458" font-size="10" fill="#666" font-family="monospace">GET    /api/productos/:id      - detalle de producto</text>
+  <text x="30" y="476" font-size="10" fill="#666" font-family="monospace">POST   /api/auth/registro      - crear cuenta</text>
+  <text x="30" y="494" font-size="10" fill="#666" font-family="monospace">POST   /api/auth/login         - iniciar sesion</text>
+  <text x="30" y="512" font-size="10" fill="#666" font-family="monospace">GET    /api/carrito            - ver carrito (requiere auth)</text>
+  <text x="30" y="530" font-size="10" fill="#666" font-family="monospace">POST   /api/pedidos            - confirmar pedido (requiere auth)</text>
+  <text x="30" y="548" font-size="10" fill="#666" font-family="monospace">GET    /api/pedidos            - historial (requiere auth)</text>
+
+  <text x="580" y="440" font-size="10" fill="#666" font-family="monospace">POST   /api/admin/productos    - crear producto (requiere admin)</text>
+  <text x="580" y="458" font-size="10" fill="#666" font-family="monospace">POST   /api/admin/ofertas      - crear oferta (requiere admin)</text>
+  <text x="580" y="476" font-size="10" fill="#666" font-family="monospace">PATCH  /api/admin/pedidos/:id  - actualizar estado (requiere admin)</text>
+
+  <line x1="30" y1="575" x2="1070" y2="575" stroke="#eee"/>
+  <text x="30" y="600" font-size="9" fill="#999">Los middlewares 'verificarJWT' y 'verificarAdmin' se aplican como capas antes del controller en rutas protegidas.</text>
+
+</svg>

@@ -78,7 +78,7 @@
 
 ### HU-07: Ver detalle de producto
 **Como** cliente,
-**quiero** ver especificaciones, calificación, precio y descripción de un producto,
+**quiero** ver especificaciones, precio y descripción de un producto,
 **para** decidir si es lo que necesito antes de comprarlo.
 
 **Criterios de aceptación:**

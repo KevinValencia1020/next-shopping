@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1200" height="900" fill="#ffffff" stroke="#ccc"/>
+
+  <!-- HEADER ADMIN -->
+  <rect x="0" y="0" width="1200" height="55" fill="#2c3e50"/>
+  <text x="25" y="34" fill="white" font-size="15" font-weight="bold">NEXT SHOPPING - Panel Admin</text>
+  <text x="1080" y="34" fill="white" font-size="10">Admin: Carlos R.</text>
+  <text x="1150" y="34" fill="white" font-size="10">&#9660;</text>
+
+  <!-- SIDEBAR ADMIN (fijo, mismo del formulario de producto) -->
+  <rect x="0" y="55" width="210" height="845" fill="#34495e"/>
+  <text x="20" y="90" font-size="10" fill="#95a5a6" font-weight="bold">GESTION</text>
+
+  <text x="25" y="128" font-size="11" fill="#ecf0f1">&#128230; Productos</text>
+
+  <rect x="10" y="150" width="190" height="36" rx="4" fill="#4a90e2"/>
+  <text x="25" y="173" font-size="11" fill="white" font-weight="bold">&#127991; Ofertas</text>
+
+  <text x="25" y="210" font-size="11" fill="#ecf0f1">&#128230; Pedidos</text>
+
+  <line x1="20" y1="240" x2="190" y2="240" stroke="#4a5f73"/>
+  <text x="25" y="270" font-size="10" fill="#95a5a6">&#9881; Cerrar sesion</text>
+
+  <!-- CONTENIDO -->
+  <text x="235" y="95" font-size="20" fill="#333" font-weight="bold">Gestion de ofertas</text>
+  <text x="235" y="118" font-size="10" fill="#999">Ofertas activas y creacion de nuevas</text>
+
+  <rect x="960" y="80" width="200" height="42" rx="6" fill="#4a90e2"/>
+  <text x="985" y="106" font-size="11" fill="white" font-weight="bold">+ Nueva oferta</text>
+
+  <!-- TABLA DE OFERTAS ACTIVAS -->
+  <rect x="235" y="150" width="925" height="40" fill="#f5f5f5"/>
+  <text x="250" y="175" font-size="10" fill="#666" font-weight="bold">TIPO</text>
+  <text x="400" y="175" font-size="10" fill="#666" font-weight="bold">APLICADO A</text>
+  <text x="650" y="175" font-size="10" fill="#666" font-weight="bold">DESCUENTO</text>
+  <text x="800" y="175" font-size="10" fill="#666" font-weight="bold">ESTADO</text>
+  <text x="950" y="175" font-size="10" fill="#666" font-weight="bold">ACCIONES</text>
+
+  <!-- fila 1 -->
+  <line x1="235" y1="190" x2="1160" y2="190" stroke="#eee"/>
+  <text x="250" y="215" font-size="10" fill="#333">Categoria</text>
+  <text x="400" y="215" font-size="10" fill="#333">Lavadoras</text>
+  <text x="650" y="215" font-size="10" fill="#4a90e2" font-weight="bold">-15%</text>
+  <rect x="800" y="200" width="60" height="20" rx="10" fill="#dff0d8"/>
+  <text x="810" y="214" font-size="8" fill="#3c763d" font-weight="bold">Activa</text>
+  <text x="950" y="215" font-size="9" fill="#4a90e2">Editar</text>
+  <text x="1000" y="215" font-size="9" fill="#e74c3c">Eliminar</text>
+
+  <!-- fila 2 -->
+  <line x1="235" y1="230" x2="1160" y2="230" stroke="#eee"/>
+  <text x="250" y="255" font-size="10" fill="#333">Producto</text>
+  <text x="400" y="255" font-size="10" fill="#333">Microondas Whirlpool 20L</text>
+  <text x="650" y="255" font-size="10" fill="#4a90e2" font-weight="bold">-14%</text>
+  <rect x="800" y="240" width="60" height="20" rx="10" fill="#dff0d8"/>
+  <text x="810" y="254" font-size="8" fill="#3c763d" font-weight="bold">Activa</text>
+  <text x="950" y="255" font-size="9" fill="#4a90e2">Editar</text>
+  <text x="1000" y="255" font-size="9" fill="#e74c3c">Eliminar</text>
+
+  <!-- fila 3 -->
+  <line x1="235" y1="270" x2="1160" y2="270" stroke="#eee"/>
+  <text x="250" y="295" font-size="10" fill="#333">Categoria</text>
+  <text x="400" y="295" font-size="10" fill="#333">Neveras</text>
+  <text x="650" y="295" font-size="10" fill="#999" font-weight="bold">-10%</text>
+  <rect x="800" y="280" width="70" height="20" rx="10" fill="#f2dede"/>
+  <text x="808" y="294" font-size="8" fill="#a94442" font-weight="bold">Vencida</text>
+  <text x="950" y="295" font-size="9" fill="#4a90e2">Editar</text>
+  <text x="1000" y="295" font-size="9" fill="#e74c3c">Eliminar</text>
+
+  <line x1="235" y1="310" x2="1160" y2="310" stroke="#eee"/>
+
+  <!-- FORMULARIO NUEVA OFERTA (panel lateral/modal simulado) -->
+  <rect x="700" y="350" width="460" height="445" rx="8" fill="#f9f9f9" stroke="#4a90e2" stroke-width="2"/>
+  <text x="725" y="380" font-size="14" fill="#333" font-weight="bold">Crear nueva oferta</text>
+  <text x="1120" y="380" font-size="14" fill="#999">&#10005;</text>
+
+  <text x="725" y="415" font-size="11" fill="#333" font-weight="bold">Aplicar a *</text>
+  <rect x="725" y="423" width="190" height="32" rx="4" fill="white" stroke="#ddd"/>
+  <circle cx="740" cy="439" r="6" fill="none" stroke="#4a90e2" stroke-width="2"/>
+  <circle cx="740" cy="439" r="2.5" fill="#4a90e2"/>
+  <text x="752" y="443" font-size="9" fill="#333">Categoria</text>
+
+  <rect x="925" y="423" width="190" height="32" rx="4" fill="white" stroke="#ddd"/>
+  <circle cx="940" cy="439" r="6" fill="none" stroke="#999" stroke-width="2"/>
+  <text x="952" y="443" font-size="9" fill="#333">Producto especifico</text>
+
+  <text x="725" y="480" font-size="11" fill="#333" font-weight="bold">Seleccionar categoria *</text>
+  <rect x="725" y="488" width="390" height="34" rx="4" fill="white" stroke="#ddd"/>
+  <text x="735" y="510" font-size="10" fill="#999">Seleccionar... &#9662;</text>
+
+  <text x="725" y="545" font-size="11" fill="#333" font-weight="bold">Tipo de descuento *</text>
+  <rect x="725" y="553" width="190" height="34" rx="4" fill="#eef4fc" stroke="#4a90e2"/>
+  <text x="740" y="575" font-size="10" fill="#4a90e2" font-weight="bold">Porcentaje (%)</text>
+  <rect x="925" y="553" width="190" height="34" rx="4" fill="white" stroke="#ddd"/>
+  <text x="940" y="575" font-size="10" fill="#666">Monto fijo ($)</text>
+
+  <text x="725" y="610" font-size="11" fill="#333" font-weight="bold">Valor del descuento *</text>
+  <rect x="725" y="618" width="390" height="34" rx="4" fill="white" stroke="#ddd"/>
+  <text x="735" y="640" font-size="10" fill="#bbb">Ej: 15</text>
+
+  <text x="725" y="675" font-size="11" fill="#333" font-weight="bold">Fecha inicio *</text>
+  <rect x="725" y="683" width="190" height="34" rx="4" fill="white" stroke="#ddd"/>
+  <text x="735" y="705" font-size="10" fill="#bbb">dd/mm/aaaa</text>
+
+  <text x="925" y="675" font-size="11" fill="#333" font-weight="bold">Fecha vencimiento *</text>
+  <rect x="925" y="683" width="190" height="34" rx="4" fill="white" stroke="#ddd"/>
+  <text x="935" y="705" font-size="10" fill="#bbb">dd/mm/aaaa</text>
+
+  <rect x="725" y="735" width="120" height="38" rx="6" fill="white" stroke="#999"/>
+  <text x="755" y="759" font-size="10" fill="#666">Cancelar</text>
+
+  <rect x="860" y="735" width="255" height="38" rx="6" fill="#4a90e2"/>
+  <text x="900" y="759" font-size="11" fill="white" font-weight="bold">Confirmar oferta</text>
+
+</svg>

@@ -1,0 +1,86 @@
+<svg viewBox="0 0 1000 780" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1000" height="780" fill="#ffffff" stroke="#ccc"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1000" height="60" fill="#4a90e2"/>
+  <text x="25" y="37" fill="white" font-size="16" font-weight="bold">NEXT SHOPPING</text>
+  <rect x="350" y="15" width="400" height="30" rx="15" fill="white"/>
+  <text x="365" y="35" fill="#999" font-size="12">Buscar...</text>
+
+  <!-- BREADCRUMB -->
+  <text x="25" y="90" font-size="10" fill="#999">Inicio &#8250; Cocina &#8250; Microondas</text>
+
+  <!-- MINIATURAS VERTICALES (izquierda) -->
+  <rect x="25" y="110" width="70" height="70" fill="#d0d0d0" stroke="#4a90e2" stroke-width="2"/>
+  <rect x="25" y="190" width="70" height="70" fill="#e8e8e8" stroke="#ddd"/>
+  <rect x="25" y="270" width="70" height="70" fill="#e8e8e8" stroke="#ddd"/>
+  <rect x="25" y="350" width="70" height="70" fill="#e8e8e8" stroke="#ddd"/>
+  <text x="18" y="435" font-size="7" fill="#999">Seleccionada =</text>
+  <text x="18" y="446" font-size="7" fill="#999">borde azul</text>
+
+  <!-- IMAGEN PRINCIPAL (centro) -->
+  <rect x="110" y="110" width="400" height="400" fill="#e8e8e8" stroke="#ddd"/>
+  <text x="200" y="315" font-size="12" fill="#999">[ Imagen grande - hover = zoom ]</text>
+
+  <!-- COLUMNA DERECHA: Info del producto -->
+  <text x="540" y="130" font-size="20" fill="#333" font-weight="bold">Microondas Whirlpool 20L</text>
+
+  <text x="540" y="155" font-size="14" fill="#f5a623">&#9733;&#9733;&#9733;&#9733;&#9734;</text>
+  <text x="640" y="155" font-size="11" fill="#666">4.2 (128 opiniones)</text>
+
+  <line x1="540" y1="170" x2="960" y2="170" stroke="#eee"/>
+
+  <text x="540" y="200" font-size="24" fill="#4a90e2" font-weight="bold">$389.000</text>
+  <text x="660" y="200" font-size="13" fill="#999" text-decoration="line-through">$450.000</text>
+  <rect x="750" y="182" width="60" height="20" rx="3" fill="#e74c3c"/>
+  <text x="758" y="196" font-size="10" fill="white">-14% OFF</text>
+
+  <text x="540" y="230" font-size="12" fill="#333" font-weight="bold">Descripcion</text>
+  <text x="540" y="248" font-size="10" fill="#666">Microondas digital de 20 litros, panel tactil,</text>
+  <text x="540" y="262" font-size="10" fill="#666">700W de potencia, 6 niveles de coccion.</text>
+
+  <text x="540" y="290" font-size="12" fill="#333" font-weight="bold">Especificaciones</text>
+  <rect x="540" y="300" width="420" height="90" rx="4" fill="#f9f9f9" stroke="#eee"/>
+  <text x="555" y="320" font-size="10" fill="#666">Capacidad: 20 litros</text>
+  <text x="555" y="338" font-size="10" fill="#666">Potencia: 700W</text>
+  <text x="555" y="356" font-size="10" fill="#666">Marca: Whirlpool</text>
+  <text x="555" y="374" font-size="10" fill="#666">Stock disponible: 12 unidades</text>
+
+  <text x="540" y="420" font-size="12" fill="#333" font-weight="bold">Cantidad</text>
+  <rect x="540" y="430" width="110" height="34" rx="4" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="552" y="452" font-size="15" fill="#333">-</text>
+  <text x="590" y="452" font-size="13" fill="#333">1</text>
+  <text x="630" y="452" font-size="15" fill="#333">+</text>
+
+  <rect x="540" y="480" width="200" height="45" rx="6" fill="#4a90e2"/>
+  <text x="580" y="508" font-size="13" fill="white" font-weight="bold">Agregar al carrito</text>
+
+  <rect x="750" y="480" width="50" height="45" rx="6" fill="white" stroke="#4a90e2" stroke-width="2"/>
+  <text x="765" y="508" font-size="16" fill="#4a90e2">&#9825;</text>
+
+  <!-- SECCION PRODUCTOS SIMILARES -->
+  <line x1="25" y1="560" x2="975" y2="560" stroke="#eee"/>
+  <text x="25" y="590" font-size="14" fill="#333" font-weight="bold">PRODUCTOS SIMILARES</text>
+  <text x="25" y="605" font-size="9" fill="#999">Otras opciones en la misma categoria</text>
+
+  <rect x="25" y="620" width="220" height="140" rx="6" fill="#f5f5f5" stroke="#ddd"/>
+  <rect x="35" y="630" width="200" height="90" fill="#e0e0e0"/>
+  <text x="35" y="735" font-size="10" fill="#333">Microondas Samsung 23L</text>
+  <text x="35" y="752" font-size="11" fill="#4a90e2" font-weight="bold">$425.000</text>
+
+  <rect x="260" y="620" width="220" height="140" rx="6" fill="#f5f5f5" stroke="#ddd"/>
+  <rect x="270" y="630" width="200" height="90" fill="#e0e0e0"/>
+  <text x="270" y="735" font-size="10" fill="#333">Microondas LG 21L</text>
+  <text x="270" y="752" font-size="11" fill="#4a90e2" font-weight="bold">$399.000</text>
+
+  <rect x="495" y="620" width="220" height="140" rx="6" fill="#f5f5f5" stroke="#ddd"/>
+  <rect x="505" y="630" width="200" height="90" fill="#e0e0e0"/>
+  <text x="505" y="735" font-size="10" fill="#333">Microondas Haceb 18L</text>
+  <text x="505" y="752" font-size="11" fill="#4a90e2" font-weight="bold">$350.000</text>
+
+  <rect x="730" y="620" width="220" height="140" rx="6" fill="#f5f5f5" stroke="#ddd"/>
+  <rect x="740" y="630" width="200" height="90" fill="#e0e0e0"/>
+  <text x="740" y="735" font-size="10" fill="#333">Microondas Electrolux 20L</text>
+  <text x="740" y="752" font-size="11" fill="#4a90e2" font-weight="bold">$410.000</text>
+
+</svg>

@@ -1,0 +1,77 @@
+<svg viewBox="0 0 375 1050" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="375" height="1050" fill="#ffffff" stroke="#ccc"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="375" height="50" fill="#4a90e2"/>
+  <text x="15" y="32" fill="white" font-size="16">&#8592;</text>
+  <text x="45" y="32" fill="white" font-size="13">Checkout</text>
+
+  <!-- SECCION 1: DIRECCION -->
+  <text x="15" y="80" font-size="13" fill="#333" font-weight="bold">1. Direccion de envio</text>
+  <rect x="15" y="90" width="345" height="80" rx="6" fill="#f5f5f5" stroke="#4a90e2" stroke-width="2"/>
+  <text x="25" y="112" font-size="10" fill="#333" font-weight="bold">Casa</text>
+  <text x="25" y="128" font-size="9" fill="#666">Calle 45 #12-30, Barrio Centro</text>
+  <text x="25" y="142" font-size="9" fill="#666">Cali, Valle del Cauca</text>
+  <text x="290" y="112" font-size="9" fill="#4a90e2">Cambiar</text>
+
+  <rect x="15" y="180" width="150" height="28" rx="4" fill="white" stroke="#4a90e2"/>
+  <text x="25" y="198" font-size="9" fill="#4a90e2">+ Agregar direccion</text>
+
+  <!-- nota: campo obligatorio si no tiene -->
+  <text x="15" y="225" font-size="7" fill="#bbb" font-style="italic">Si no hay direccion guardada, este campo es obligatorio antes de continuar</text>
+
+  <!-- SECCION 2: METODO DE PAGO -->
+  <line x1="15" y1="245" x2="360" y2="245" stroke="#eee"/>
+  <text x="15" y="270" font-size="13" fill="#333" font-weight="bold">2. Metodo de pago</text>
+
+  <rect x="15" y="280" width="345" height="50" rx="6" fill="#f5f5f5" stroke="#4a90e2" stroke-width="2"/>
+  <circle cx="30" cy="305" r="7" fill="none" stroke="#4a90e2" stroke-width="2"/>
+  <circle cx="30" cy="305" r="3" fill="#4a90e2"/>
+  <text x="50" y="300" font-size="10" fill="#333" font-weight="bold">Tarjeta terminada en 4521</text>
+  <text x="50" y="315" font-size="8" fill="#666">Visa</text>
+
+  <rect x="15" y="340" width="345" height="50" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <circle cx="30" cy="365" r="7" fill="none" stroke="#999" stroke-width="2"/>
+  <text x="50" y="370" font-size="10" fill="#333">PSE</text>
+
+  <rect x="15" y="400" width="150" height="28" rx="4" fill="white" stroke="#4a90e2"/>
+  <text x="25" y="418" font-size="9" fill="#4a90e2">+ Agregar metodo de pago</text>
+
+  <!-- SECCION 3: RESUMEN -->
+  <line x1="15" y1="450" x2="360" y2="450" stroke="#eee"/>
+  <text x="15" y="475" font-size="13" fill="#333" font-weight="bold">3. Resumen del pedido</text>
+
+  <text x="15" y="500" font-size="9" fill="#666">Microondas Whirlpool 20L x1</text>
+  <text x="300" y="500" font-size="9" fill="#666">$389.000</text>
+
+  <text x="15" y="518" font-size="9" fill="#666">Licuadora Oster 600W x2</text>
+  <text x="300" y="518" font-size="9" fill="#666">$318.000</text>
+
+  <text x="15" y="536" font-size="9" fill="#666">Estufa Haceb 4 puestos x1</text>
+  <text x="300" y="536" font-size="9" fill="#666">$720.000</text>
+
+  <line x1="15" y1="550" x2="360" y2="550" stroke="#eee"/>
+  <text x="15" y="570" font-size="10" fill="#666">Subtotal</text>
+  <text x="300" y="570" font-size="10" fill="#666">$1.427.000</text>
+  <text x="15" y="588" font-size="10" fill="#666">Envio</text>
+  <text x="300" y="588" font-size="10" fill="#666">$25.000</text>
+
+  <line x1="15" y1="600" x2="360" y2="600" stroke="#ddd"/>
+  <text x="15" y="622" font-size="13" fill="#333" font-weight="bold">Total</text>
+  <text x="280" y="622" font-size="14" fill="#4a90e2" font-weight="bold">$1.452.000</text>
+
+  <text x="15" y="660" font-size="9" fill="#ccc" font-style="italic">(el usuario puede seguir scrolleando...)</text>
+
+  <!-- NOTA: manejo de error de pago -->
+  <rect x="15" y="690" width="345" height="60" rx="6" fill="#fdf2f2" stroke="#f8cecc" stroke-dasharray="3,3"/>
+  <text x="25" y="710" font-size="8" fill="#b85450" font-weight="bold">Si el pago falla:</text>
+  <text x="25" y="725" font-size="8" fill="#b85450">Se muestra mensaje de error aqui mismo y se</text>
+  <text x="25" y="738" font-size="8" fill="#b85450">permite reintentar sin perder estos datos</text>
+
+  <!-- BOTON STICKY -->
+  <rect x="0" y="980" width="375" height="70" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <rect x="15" y="995" width="345" height="40" rx="6" fill="#4a90e2"/>
+  <text x="130" y="1020" font-size="13" fill="white" font-weight="bold">Confirmar pedido</text>
+  <text x="15" y="978" font-size="7" fill="#bbb" font-style="italic">^ Boton fijo (sticky)</text>
+
+</svg>

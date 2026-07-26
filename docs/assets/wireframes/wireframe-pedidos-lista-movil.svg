@@ -1,0 +1,63 @@
+<svg viewBox="0 0 375 900" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="375" height="900" fill="#ffffff" stroke="#ccc"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="375" height="50" fill="#4a90e2"/>
+  <text x="15" y="32" fill="white" font-size="16">&#8592;</text>
+  <text x="45" y="32" fill="white" font-size="13">Mis pedidos</text>
+
+  <!-- PEDIDO 1 -->
+  <rect x="15" y="70" width="345" height="140" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <text x="25" y="90" font-size="9" fill="#999">Pedido #00123 - 12 jul 2026</text>
+
+  <rect x="35" y="835" width="0" height="0"/> <!-- placeholder -->
+  <rect x="25" y="100" width="55" height="55" fill="#e0e0e0"/>
+  <text x="90" y="115" font-size="10" fill="#333" font-weight="bold">Microondas Whirlpool 20L</text>
+  <text x="90" y="130" font-size="9" fill="#666">+ 2 productos mas</text>
+  <text x="90" y="148" font-size="11" fill="#4a90e2" font-weight="bold">Total: $1.452.000</text>
+
+  <rect x="25" y="163" width="75" height="20" rx="10" fill="#dff0d8"/>
+  <text x="35" y="177" font-size="8" fill="#3c763d" font-weight="bold">Entregado</text>
+
+  <text x="290" y="177" font-size="9" fill="#4a90e2">Ver detalle &#8594;</text>
+
+  <!-- PEDIDO 2 -->
+  <rect x="15" y="225" width="345" height="140" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <text x="25" y="245" font-size="9" fill="#999">Pedido #00119 - 8 jul 2026</text>
+
+  <rect x="25" y="255" width="55" height="55" fill="#e0e0e0"/>
+  <text x="90" y="270" font-size="10" fill="#333" font-weight="bold">Nevera Samsung 400L</text>
+  <text x="90" y="285" font-size="9" fill="#666">1 producto</text>
+  <text x="90" y="303" font-size="11" fill="#4a90e2" font-weight="bold">Total: $2.450.000</text>
+
+  <rect x="25" y="318" width="60" height="20" rx="10" fill="#d9edf7"/>
+  <text x="33" y="332" font-size="8" fill="#31708f" font-weight="bold">Enviado</text>
+
+  <text x="290" y="332" font-size="9" fill="#4a90e2">Ver detalle &#8594;</text>
+
+  <!-- PEDIDO 3 -->
+  <rect x="15" y="380" width="345" height="140" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <text x="25" y="400" font-size="9" fill="#999">Pedido #00115 - 2 jul 2026</text>
+
+  <rect x="25" y="410" width="55" height="55" fill="#e0e0e0"/>
+  <text x="90" y="425" font-size="10" fill="#333" font-weight="bold">Estufa Haceb 4 puestos</text>
+  <text x="90" y="440" font-size="9" fill="#666">1 producto</text>
+  <text x="90" y="458" font-size="11" fill="#4a90e2" font-weight="bold">Total: $745.000</text>
+
+  <rect x="25" y="473" width="90" height="20" rx="10" fill="#fcf8e3"/>
+  <text x="33" y="487" font-size="8" fill="#8a6d3b" font-weight="bold">Confirmado</text>
+
+  <text x="290" y="487" font-size="9" fill="#4a90e2">Ver detalle &#8594;</text>
+
+  <!-- ESTADOS POSIBLES (nota de referencia) -->
+  <text x="15" y="555" font-size="9" fill="#333" font-weight="bold">Estados posibles:</text>
+  <rect x="15" y="565" width="90" height="20" rx="10" fill="#fcf8e3"/>
+  <text x="25" y="579" font-size="8" fill="#8a6d3b">Pendiente</text>
+  <rect x="115" y="565" width="90" height="20" rx="10" fill="#fcf8e3"/>
+  <text x="125" y="579" font-size="8" fill="#8a6d3b">Confirmado</text>
+  <rect x="215" y="565" width="70" height="20" rx="10" fill="#d9edf7"/>
+  <text x="223" y="579" font-size="8" fill="#31708f">Enviado</text>
+  <rect x="295" y="565" width="70" height="20" rx="10" fill="#dff0d8"/>
+  <text x="303" y="579" font-size="8" fill="#3c763d">Entregado</text>
+
+</svg>

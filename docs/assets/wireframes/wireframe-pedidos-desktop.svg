@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1200" height="750" fill="#ffffff" stroke="#ccc"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="1200" height="60" fill="#232f3e"/>
+  <text x="25" y="37" fill="white" font-size="16" font-weight="bold">NEXT SHOPPING</text>
+  <text x="1080" y="37" fill="white" font-size="12" font-weight="bold">Mis Pedidos</text>
+
+  <text x="25" y="100" font-size="20" fill="#333" font-weight="bold">Mis pedidos</text>
+
+  <!-- COLUMNA IZQUIERDA: Lista de pedidos (mas angosta, tipo panel) -->
+  <rect x="25" y="120" width="330" height="90" rx="6" fill="#eef4fc" stroke="#4a90e2" stroke-width="2"/>
+  <text x="40" y="140" font-size="9" fill="#999">Pedido #00123 - 12 jul 2026</text>
+  <text x="40" y="158" font-size="10" fill="#333" font-weight="bold">Microondas + 2 productos mas</text>
+  <text x="40" y="175" font-size="11" fill="#4a90e2" font-weight="bold">$1.452.000</text>
+  <rect x="40" y="182" width="75" height="18" rx="9" fill="#dff0d8"/>
+  <text x="50" y="195" font-size="8" fill="#3c763d" font-weight="bold">Entregado</text>
+
+  <rect x="25" y="220" width="330" height="90" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <text x="40" y="240" font-size="9" fill="#999">Pedido #00119 - 8 jul 2026</text>
+  <text x="40" y="258" font-size="10" fill="#333" font-weight="bold">Nevera Samsung 400L</text>
+  <text x="40" y="275" font-size="11" fill="#4a90e2" font-weight="bold">$2.450.000</text>
+  <rect x="40" y="282" width="60" height="18" rx="9" fill="#d9edf7"/>
+  <text x="48" y="295" font-size="8" fill="#31708f" font-weight="bold">Enviado</text>
+
+  <rect x="25" y="320" width="330" height="90" rx="6" fill="#ffffff" stroke="#ddd"/>
+  <text x="40" y="340" font-size="9" fill="#999">Pedido #00115 - 2 jul 2026</text>
+  <text x="40" y="358" font-size="10" fill="#333" font-weight="bold">Estufa Haceb 4 puestos</text>
+  <text x="40" y="375" font-size="11" fill="#4a90e2" font-weight="bold">$745.000</text>
+  <rect x="40" y="382" width="90" height="18" rx="9" fill="#fcf8e3"/>
+  <text x="48" y="395" font-size="8" fill="#8a6d3b" font-weight="bold">Confirmado</text>
+
+  <text x="25" y="450" font-size="9" fill="#999">Selecciona un pedido para ver el detalle &#8594;</text>
+
+  <!-- COLUMNA DERECHA: Detalle del pedido seleccionado -->
+  <rect x="380" y="120" width="795" height="590" rx="6" fill="#f9f9f9" stroke="#ddd"/>
+
+  <text x="410" y="155" font-size="16" fill="#333" font-weight="bold">Pedido #00123</text>
+  <text x="410" y="175" font-size="10" fill="#999">Fecha del pedido: 12 jul 2026</text>
+
+  <!-- linea de tiempo -->
+  <circle cx="440" cy="215" r="11" fill="#4a90e2"/>
+  <text x="435" y="219" font-size="10" fill="white">&#10003;</text>
+  <line x1="451" y1="215" x2="570" y2="215" stroke="#4a90e2" stroke-width="2"/>
+  <circle cx="581" cy="215" r="11" fill="#4a90e2"/>
+  <text x="576" y="219" font-size="10" fill="white">&#10003;</text>
+  <line x1="592" y1="215" x2="711" y2="215" stroke="#4a90e2" stroke-width="2"/>
+  <circle cx="722" cy="215" r="11" fill="#4a90e2"/>
+  <text x="717" y="219" font-size="10" fill="white">&#10003;</text>
+  <line x1="733" y1="215" x2="852" y2="215" stroke="#ddd" stroke-width="2"/>
+  <circle cx="863" cy="215" r="11" fill="#ddd"/>
+
+  <text x="410" y="245" font-size="8" fill="#666">Pendiente</text>
+  <text x="555" y="245" font-size="8" fill="#666">Confirmado</text>
+  <text x="700" y="245" font-size="8" fill="#666">Enviado</text>
+  <text x="845" y="245" font-size="8" fill="#999">Entregado</text>
+
+  <line x1="410" y1="270" x2="1145" y2="270" stroke="#eee"/>
+
+  <!-- direccion -->
+  <text x="410" y="295" font-size="13" fill="#333" font-weight="bold">Direccion de envio</text>
+  <text x="410" y="313" font-size="10" fill="#666">Calle 45 #12-30, Barrio Centro, Cali, Valle del Cauca</text>
+
+  <!-- productos -->
+  <line x1="410" y1="330" x2="1145" y2="330" stroke="#eee"/>
+  <text x="410" y="355" font-size="13" fill="#333" font-weight="bold">Productos</text>
+
+  <rect x="410" y="365" width="70" height="70" fill="#e0e0e0"/>
+  <text x="495" y="380" font-size="10" fill="#333" font-weight="bold">Microondas Whirlpool 20L</text>
+  <text x="495" y="397" font-size="9" fill="#666">Cantidad: 1</text>
+  <text x="900" y="385" font-size="11" fill="#4a90e2" font-weight="bold">$389.000</text>
+
+  <rect x="410" y="445" width="70" height="70" fill="#e0e0e0"/>
+  <text x="495" y="460" font-size="10" fill="#333" font-weight="bold">Licuadora Oster 600W</text>
+  <text x="495" y="477" font-size="9" fill="#666">Cantidad: 2</text>
+  <text x="900" y="465" font-size="11" fill="#4a90e2" font-weight="bold">$318.000</text>
+
+  <rect x="410" y="525" width="70" height="70" fill="#e0e0e0"/>
+  <text x="495" y="540" font-size="10" fill="#333" font-weight="bold">Estufa Haceb 4 puestos</text>
+  <text x="495" y="557" font-size="9" fill="#666">Cantidad: 1</text>
+  <text x="900" y="545" font-size="11" fill="#4a90e2" font-weight="bold">$720.000</text>
+
+  <!-- resumen -->
+  <line x1="410" y1="610" x2="1145" y2="610" stroke="#eee"/>
+  <text x="410" y="632" font-size="10" fill="#666">Subtotal</text>
+  <text x="1080" y="632" font-size="10" fill="#666">$1.427.000</text>
+  <text x="410" y="650" font-size="10" fill="#666">Envio</text>
+  <text x="1080" y="650" font-size="10" fill="#666">$25.000</text>
+  <line x1="410" y1="662" x2="1145" y2="662" stroke="#ddd"/>
+  <text x="410" y="685" font-size="14" fill="#333" font-weight="bold">Total pagado</text>
+  <text x="1040" y="685" font-size="15" fill="#4a90e2" font-weight="bold">$1.452.000</text>
+
+</svg>
